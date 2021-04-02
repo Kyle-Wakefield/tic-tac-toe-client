@@ -1,16 +1,16 @@
 'use strict'
 
-let apiUrl
+let apiUrl = 'https://tic-tac-toe-api-development.herokuapp.com'
 const apiUrls = {
-  production: '<replace-with-heroku-url>',
+  production: 'https://tic-tac-toe-api-development.herokuapp.com',
   development: 'http://localhost:4741'
 }
 
-if (window.location.hostname === 'localhost') {
-  apiUrl = apiUrls.development
-} else {
-  apiUrl = apiUrls.production
-}
+// if (window.location.hostname === 'localhost') {
+//   apiUrl = apiUrls.development
+// } else {
+//   apiUrl = apiUrls.production
+// }
 
 module.exports = {
   apiUrl

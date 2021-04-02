@@ -12,6 +12,46 @@
       <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
     </head>
     <body>
-      <h1>Browser Template</h1>
+      <h1>Welcome to Tic-Tac-Toe!</h1>
+      <div class="container" id="form-container">
+        <div class="row">
+          <div class="col-5">
+            <h2 class="form-header">Sign Up!</h2>
+            <form id="sign-up-form">
+              <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">Email address</label>
+                <input type="email" class="form-control" aria-describedby="emailHelp" name="credentials[email]" placeholder="Email" required>
+              </div>
+              <div class="mb-3">
+                <label for="exampleInputPassword1" class="form-label">Password</label>
+                <input type="password" class="form-control" name="credentials[password]" placeholder="Password" required>
+              </div>
+              <div class="mb-3">
+                <label for="exampleInputPassword1" class="form-label">Confirm Password</label>
+                <input type="password" class="form-control" name="credentials[password_confirmation]" placeholder="Password" required>
+              </div>
+              <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+          </div>
+          <div class="col-2">
+            <h1>OR</h1>
+          </div>
+          <div class="col-5">
+            <h2 class="form-header">Sign In!</h2>
+            <form id="sign-in-form">
+              <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">Email address</label>
+                <input type="email" class="form-control" aria-describedby="emailHelp" name="credentials[email]" placeholder="Email" required>
+              </div>
+              <div class="mb-3">
+                <label for="exampleInputPassword1" class="form-label">Password</label>
+                <input type="password" class="form-control" name="credentials[password]" placeholder="Password" required>
+              </div>
+              <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+          </div>
+        </div>
+      </div>
+      <div id="messages"></div>
     </body>
 </html>
