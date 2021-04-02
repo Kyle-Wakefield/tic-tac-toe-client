@@ -25,8 +25,8 @@
 ### Signed in user must be able to sign out
 -button to sign out ✔
 -event handler: events.js ✔
--api call: api.js
--ui update: ui.js
+-api call: api.js ✔
+-ui update: ui.js ✔
 
 ### in user user must be able to start a tic tac toe game
 -button to start new game: index.html ✔

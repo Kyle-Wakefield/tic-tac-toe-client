@@ -19,6 +19,8 @@ const signIn = function (formData) {
   })
 }
 
+// This function throws an error if called while the user is already signed out,
+//  but that won't happen as long as the sign out button is hidden while the user is logged out
 const signOut = function () {
   console.log('signOut')
   return $.ajax({
