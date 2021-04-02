@@ -8,18 +8,29 @@
 -change game state: curl-scripts/change-game-state.sh ✔
 
 ### User must be able to sign up
--form + button to sign up: index.html
--event listener for form: app.js
+-form + button to sign up: index.html ✔
+-event listener for form: app.js ✔
+-event handler: events.js ✔
+-api call: api.js ✔
+-ui update: ui.js ✔
 
 ### User must be able to sign in
--form + button to sign in
--event listener for form: app.js
+-form + button to sign in: index.html ✔
+-event listener for form: app.js ✔
+-event handler: events.js ✔
+-api call: api.js ✔
+-ui update: ui.js ✔
+-store user: ui.js ✔
 
 ### Signed in user must be able to sign out
--button to sign out
+-button to sign out ✔
+-event handler: events.js ✔
+-api call: api.js
+-ui update: ui.js
 
 ### in user user must be able to start a tic tac toe game
--button to start new game
+-button to start new game: index.html ✔
+-gameboard: index.html ✔
 
 ### When playing game, user must be able to change the board state with clicks
 

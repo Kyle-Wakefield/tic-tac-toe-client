@@ -1,4 +1,5 @@
 const config = require('./config')
+const store = require('./store.js')
 
 const signUp = function (formData) {
   console.log('signUp')
@@ -18,7 +19,19 @@ const signIn = function (formData) {
   })
 }
 
+const signOut = function () {
+  console.log('signOut')
+  return $.ajax({
+    method: 'DELETE',
+    url: config.apiUrl + '/sign-out',
+    headers: {
+      Authorization: 'Bearer ' + store.user.token
+    }
+  })
+}
+
 module.exports = {
   signUp,
-  signIn
+  signIn,
+  signOut
 }

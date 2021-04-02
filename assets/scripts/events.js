@@ -1,6 +1,6 @@
 'use strict'
 
-// Import ui.js, api.js, and get-form-fields.js
+// Imports
 const ui = require('./ui.js')
 const api = require('./api.js')
 const getFormFields = require('./../../lib/get-form-fields.js')
@@ -32,7 +32,18 @@ const onSignIn = function (event) {
     .catch(ui.onSignInError)
 }
 
+const onSignOut = function (event) {
+  // Prevent the page from refreshing when the button is clicked
+  event.preventDefault()
+  console.log('onSignOut')
+
+  api.signOut()
+    .then(ui.onSignOutSuccess)
+    .catch(ui.onSignOutError)
+}
+
 module.exports = {
   onSignUp,
-  onSignIn
+  onSignIn,
+  onSignOut
 }

@@ -12,8 +12,38 @@ h1 {
   color: red;
 }
 
-#form-container {
-  align-items: center;
+.my-border {
+  border-style: solid;
+  border-width: 2px;
+}
+
+.my-border-bottom {
+  @extend .my-border;
+  border-bottom-width: 4px;
+}
+
+.my-border-left {
+  @extend .my-border;
+  border-left-width: 4px;
+}
+
+.my-border-right {
+  @extend .my-border;
+  border-right-width: 4px;
+}
+
+.my-border-top {
+  @extend .my-border;
+  border-top-width: 4px;
+}
+
+.font-size-40 {
+  font-size: 40px;
+}
+
+.box-size-100 {
+  height: 100px;
+  width: 100px;
 }
 
 #messages {
