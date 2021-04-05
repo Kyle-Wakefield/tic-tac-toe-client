@@ -20,34 +20,51 @@ const onSuccess = function (successMessage) {
   setTimeout(() => $('#messages').hide(), 4000)
 }
 
+const onGameEnd = function (result) {
+  storage.game.over = true
+  $('#messages').html(result)
+  $('#messages').removeClass('error')
+  $('#messages').removeClass('success')
+  $('#messages').show()
+}
+
 const updateBoard = function () {
   for (let i = 0; i < 9; i++) {
     $(`[data-space-number=${i}]`).html(storage.game.cells[i])
   }
 }
 
-// const checkGameState = function () {
-//   const cells = storage.game.cells
-//   // All the lines of 3 that can be formed
-//   const lines = [
-//     // Rows
-//     [cells[0], cells[1], cells[2]],
-//     [cells[3], cells[4], cells[5]],
-//     [cells[6], cells[7], cells[8]],
-//     // Columns
-//     [cells[0], cells[3], cells[6]],
-//     [cells[1], cells[4], cells[7]],
-//     [cells[2], cells[5], cells[8]],
-//     // Diagonals
-//     [cells[0], cells[4], cells[8]],
-//     [cells[2], cells[4], cells[6]]
-//   ]
-//   lines.forEach(function (line) {
-//     if (line[0] === 'x' && line[1] === 'x' && line[2] === 'x') {
-//       return 'x win'
-//     } else if (line[0] === 'o' && line[1] === 'o' && line[2] === 'o')
-//   })
-// }
+const checkGameState = function () {
+  const cells = storage.game.cells
+  // All the lines of 3 that can be formed
+  const lines = [
+    // Rows
+    [cells[0], cells[1], cells[2]],
+    [cells[3], cells[4], cells[5]],
+    [cells[6], cells[7], cells[8]],
+    // Columns
+    [cells[0], cells[3], cells[6]],
+    [cells[1], cells[4], cells[7]],
+    [cells[2], cells[5], cells[8]],
+    // Diagonals
+    [cells[0], cells[4], cells[8]],
+    [cells[2], cells[4], cells[6]]
+  ]
+  // 'not over' is the default value
+  let status = 'not over'
+  lines.forEach(function (line) {
+    if (line[0] === 'x' && line[1] === 'x' && line[2] === 'x') {
+      status = 'X wins!'
+    } else if (line[0] === 'o' && line[1] === 'o' && line[2] === 'o') {
+      status = 'O wins!'
+    }
+  })
+  // if nobody has won and 9 moves have been made, it's a tie
+  if (status === 'not over' && storage.game.__v === 9) {
+    status = 'It\'s a Tie!'
+  }
+  return status
+}
 
 const onSignUpError = function (err) {
   onError(err, 'Sign up failed, make sure your Email is unique and your passwords match.')
@@ -93,7 +110,6 @@ const onStartGameSuccess = function (response) {
   storage.game = response.game
   storage.whoseTurn = 'x'
   updateBoard()
-  // console.log('id: ' + storage.game._id + ' token: ' + storage.user.token)
   onSuccess('Started game successfully!')
 }
 
@@ -105,7 +121,10 @@ const onMakeMoveSuccess = function (response) {
   storage.game = response.game
   store.switchTurn()
   updateBoard()
-  onSuccess('Made move successfully!')
+  const status = (checkGameState())
+  if (status !== 'not over') {
+    onGameEnd(status)
+  }
 }
 
 module.exports = {
