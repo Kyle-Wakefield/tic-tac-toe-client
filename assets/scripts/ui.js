@@ -26,6 +26,29 @@ const updateBoard = function () {
   }
 }
 
+// const checkGameState = function () {
+//   const cells = storage.game.cells
+//   // All the lines of 3 that can be formed
+//   const lines = [
+//     // Rows
+//     [cells[0], cells[1], cells[2]],
+//     [cells[3], cells[4], cells[5]],
+//     [cells[6], cells[7], cells[8]],
+//     // Columns
+//     [cells[0], cells[3], cells[6]],
+//     [cells[1], cells[4], cells[7]],
+//     [cells[2], cells[5], cells[8]],
+//     // Diagonals
+//     [cells[0], cells[4], cells[8]],
+//     [cells[2], cells[4], cells[6]]
+//   ]
+//   lines.forEach(function (line) {
+//     if (line[0] === 'x' && line[1] === 'x' && line[2] === 'x') {
+//       return 'x win'
+//     } else if (line[0] === 'o' && line[1] === 'o' && line[2] === 'o')
+//   })
+// }
+
 const onSignUpError = function (err) {
   onError(err, 'Sign up failed, make sure your Email is unique and your passwords match.')
 }

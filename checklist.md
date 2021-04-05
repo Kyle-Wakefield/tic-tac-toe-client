@@ -33,12 +33,13 @@
 -gameboard: index.html ✔
 
 ### When playing game, user must be able to change the board state with clicks
-
--clickable spaces to change game state
+✔
 
 ### When playing game, user must start as X and then rotate between X and O
+✔
 
 ### When playing game, user must only select available spaces on the board
+✔
 
 ### When playing game, user must be notified of win or tie
 
