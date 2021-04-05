@@ -8,7 +8,10 @@
 const events = require('./events.js')
 
 $(() => {
+  $('.signed-in-data').hide()
   $('#sign-up-form').on('submit', events.onSignUp)
   $('#sign-in-form').on('submit', events.onSignIn)
   $('#sign-out-button').on('click', events.onSignOut)
+  $('#start-game-button').on('click', events.onStartGame)
+  $('.boardspace').on('click', events.onClickSpace)
 })

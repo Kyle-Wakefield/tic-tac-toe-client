@@ -32,8 +32,20 @@ const signOut = function () {
   })
 }
 
+const startGame = function () {
+  console.log('startGame')
+  return $.ajax({
+    method: 'POST',
+    url: config.apiUrl + '/games',
+    headers: {
+      Authorization: 'Bearer ' + store.user.token
+    }
+  })
+}
+
 module.exports = {
   signUp,
   signIn,
-  signOut
+  signOut,
+  startGame
 }
