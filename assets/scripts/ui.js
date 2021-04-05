@@ -1,6 +1,7 @@
 'use strict'
 
 const store = require('./store.js')
+const storage = store.storage
 
 const onError = function (err, errorMessage) {
   console.log(err)
@@ -19,6 +20,12 @@ const onSuccess = function (successMessage) {
   setTimeout(() => $('#messages').hide(), 4000)
 }
 
+const updateBoard = function () {
+  for (let i = 0; i < 9; i++) {
+    $(`[data-space-number=${i}]`).html(storage.game.cells[i])
+  }
+}
+
 const onSignUpError = function (err) {
   onError(err, 'Sign up failed, make sure your Email is unique and your passwords match.')
 }
@@ -35,11 +42,11 @@ const onSignInError = function (err) {
 
 const onSignInSuccess = function (response) {
   console.log('sign in success')
-  store.user = response.user
+  storage.user = response.user
   $('.signed-in-data').show()
   $('.signed-out-data').hide()
   $('#sign-in-form').trigger('reset')
-  $('#signed-in-as').html('Signed in as: ' + store.user.email)
+  $('#signed-in-as').html('Signed in as: ' + storage.user.email)
   onSuccess('Signed in successfully!')
 }
 
@@ -48,8 +55,8 @@ const onSignOutError = function (err) {
 }
 
 const onSignOutSuccess = function () {
-  store.user = null
-  store.game = null
+  storage.user = null
+  storage.game = null
   $('.signed-out-data').show()
   $('.signed-in-data').hide()
   onSuccess('Signed out successfully!')
@@ -60,8 +67,22 @@ const onStartGameError = function (err) {
 }
 
 const onStartGameSuccess = function (response) {
-  store.game = response.game
+  storage.game = response.game
+  storage.whoseTurn = 'x'
+  updateBoard()
+  // console.log('id: ' + storage.game._id + ' token: ' + storage.user.token)
   onSuccess('Started game successfully!')
+}
+
+const onMakeMoveError = function (err) {
+  onError(err, 'Make move failed.')
+}
+
+const onMakeMoveSuccess = function (response) {
+  storage.game = response.game
+  store.switchTurn()
+  updateBoard()
+  onSuccess('Made move successfully!')
 }
 
 module.exports = {
@@ -72,5 +93,7 @@ module.exports = {
   onSignOutError,
   onSignOutSuccess,
   onStartGameError,
-  onStartGameSuccess
+  onStartGameSuccess,
+  onMakeMoveError,
+  onMakeMoveSuccess
 }

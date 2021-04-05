@@ -1,11 +1,14 @@
 @import '~bootstrap/scss/bootstrap';
 
+$success-color: #008000;
+$error-color: red;
+
 h1 {
   text-align: center;
 }
 
 .success {
-  color: green;
+  color: $success-color;
 }
 
 .error {
@@ -42,11 +45,15 @@ h1 {
 }
 
 .box-size-100 {
+  font-size: 80px;
+  font-weight: bold;
   height: 100px;
+  line-height: 80%;
+  text-align: center;
   width: 100px;
 }
 
-#messages {
+.messages {
   font-size: 30px;
   text-align: center;
 }

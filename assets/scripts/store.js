@@ -1,8 +1,16 @@
 'use strict'
 
-const store = {
-  user: null,
-  game: null
+const storage = {}
+
+const switchTurn = function () {
+  if (storage.whoseTurn === 'x') {
+    storage.whoseTurn = 'o'
+  } else {
+    storage.whoseTurn = 'x'
+  }
 }
 
-module.exports = store
+module.exports = {
+  storage,
+  switchTurn
+}

@@ -4,6 +4,7 @@
 const ui = require('./ui.js')
 const api = require('./api.js')
 const store = require('./store.js')
+const storage = store.storage
 const getFormFields = require('./../../lib/get-form-fields.js')
 
 // Function to be called by the sign up event handler in app.js
@@ -54,8 +55,10 @@ const onStartGame = function () {
 }
 
 const onClickSpace = function (event) {
-  if (store.game !== null) {
-    console.log('Click!')
+  if (storage.game !== null && storage.game.over === false && storage.game.cells[$(event.target).data('space-number')] === '') {
+    api.makeMove($(event.target).data('space-number'))
+      .then(ui.onMakeMoveSuccess)
+      .catch(ui.onMakeMoveError)
   }
 }
 

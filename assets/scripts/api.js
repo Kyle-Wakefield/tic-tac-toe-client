@@ -1,5 +1,6 @@
 const config = require('./config')
 const store = require('./store.js')
+const storage = store.storage
 
 const signUp = function (formData) {
   console.log('signUp')
@@ -27,7 +28,7 @@ const signOut = function () {
     method: 'DELETE',
     url: config.apiUrl + '/sign-out',
     headers: {
-      Authorization: 'Bearer ' + store.user.token
+      Authorization: 'Bearer ' + storage.user.token
     }
   })
 }
@@ -38,7 +39,27 @@ const startGame = function () {
     method: 'POST',
     url: config.apiUrl + '/games',
     headers: {
-      Authorization: 'Bearer ' + store.user.token
+      Authorization: 'Bearer ' + storage.user.token
+    }
+  })
+}
+
+const makeMove = function (square) {
+  console.log('making move at square ' + square + ' with piece ' + storage.whoseTurn)
+  return $.ajax({
+    method: 'PATCH',
+    url: config.apiUrl + '/games/' + storage.game._id,
+    headers: {
+      Authorization: 'Bearer ' + storage.user.token
+    },
+    data: {
+      game: {
+        cell: {
+          index: square,
+          value: storage.whoseTurn
+        },
+        over: storage.game.over
+      }
     }
   })
 }
@@ -47,5 +68,6 @@ module.exports = {
   signUp,
   signIn,
   signOut,
-  startGame
+  startGame,
+  makeMove
 }

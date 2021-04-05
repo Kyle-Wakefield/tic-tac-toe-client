@@ -1,4 +1,4 @@
-ID="60661b2e7c24060017b18bc5"
+ID="606b2e69643b05001796e0fd"
 INDEX=0
 
 curl "https://tic-tac-toe-api-development.herokuapp.com/games/${ID}" \

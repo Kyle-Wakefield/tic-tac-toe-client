@@ -6,8 +6,12 @@
 // use require without a reference to ensure a file is bundled
 // require('./example')
 const events = require('./events.js')
+const store = require('./store.js')
+const storage = store.storage
 
 $(() => {
+  storage.user = null
+  storage.game = null
   $('.signed-in-data').hide()
   $('#sign-up-form').on('submit', events.onSignUp)
   $('#sign-in-form').on('submit', events.onSignIn)
