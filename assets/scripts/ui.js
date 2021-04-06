@@ -26,6 +26,7 @@ const onGameEnd = function (result) {
   $('#messages').removeClass('error')
   $('#messages').removeClass('success')
   $('#messages').show()
+  $('#start-game-button').html('Play Again')
 }
 
 const updateBoard = function () {
@@ -88,7 +89,7 @@ const onSignInSuccess = function (response) {
   $('#sign-in-form').trigger('reset')
   $('#signed-in-as').html('Signed in as: ' + storage.user.email)
   $('#messages').hide()
-  // onSuccess('Signed in successfully!')
+  $('#start-game-button').html('Start Game')
 }
 
 const onSignOutError = function (err) {
@@ -115,6 +116,7 @@ const onStartGameSuccess = function (response) {
   updateBoard()
   $('#game-board').show()
   $('#messages').hide()
+  $('#start-game-button').html('Restart')
   // onSuccess('Started game successfully!')
 }
 
