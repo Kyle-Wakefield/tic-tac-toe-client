@@ -68,7 +68,7 @@ const checkGameState = function () {
 }
 
 const onSignUpError = function (err) {
-  onError(err, 'Sign up failed, make sure your Email is unique and your passwords match.')
+  onError(err, 'Sign up failed, make sure your Email is<br>unique and your passwords match.')
 }
 
 const onSignUpSuccess = function () {

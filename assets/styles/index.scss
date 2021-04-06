@@ -1,14 +1,37 @@
 @import '~bootstrap/scss/bootstrap';
 
-$success-color: #008000;
+$success-color: #1f800b;
 $error-color: #f00;
+$background-color: #4026d1;
+$basic-text-color: #e9e8ed;
+$button-color: #1ea1a6;
+$button-hover-color: #31961d;
+$form-background-color: #166e4f;
 
-h1 {
+body {
+  background-color: $background-color;
+  color: $basic-text-color;
+}
+
+h1,
+h2 {
   text-align: center;
 }
 
+.btn-primary {
+  background-color: $button-color;
+
+  &:hover {
+    background-color: $button-hover-color;
+  }
+}
+
+.center {
+
+}
+
 .success {
-  color: $success-color;
+  color: $button-hover-color;
 }
 
 .error {
@@ -17,34 +40,38 @@ h1 {
 
 .my-border {
   border-style: solid;
-  border-width: 2px;
+  border-width: 5px;
 }
 
 .my-border-bottom {
   @extend .my-border;
-  border-bottom-width: 4px;
+  border-bottom-width: 8px;
 }
 
 .my-border-left {
   @extend .my-border;
-  border-left-width: 4px;
+  border-left-width: 8px;
 }
 
 .my-border-right {
   @extend .my-border;
-  border-right-width: 4px;
+  border-right-width: 8px;
 }
 
 .my-border-top {
   @extend .my-border;
-  border-top-width: 4px;
+  border-top-width: 8px;
 }
 
 .font-size-40 {
   font-size: 40px;
 }
 
-.box-size-100 {
+.font-size-20 {
+  font-size: 20px;
+}
+
+.tic-tac-toe-box {
   font-size: 80px;
   font-weight: bold;
   height: 100px;
@@ -54,6 +81,7 @@ h1 {
 }
 
 .messages {
-  font-size: 30px;
+  font-size: 50px;
+  font-weight: bold;
   text-align: center;
 }
