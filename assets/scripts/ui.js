@@ -87,7 +87,8 @@ const onSignInSuccess = function (response) {
   $('.signed-out-data').hide()
   $('#sign-in-form').trigger('reset')
   $('#signed-in-as').html('Signed in as: ' + storage.user.email)
-  onSuccess('Signed in successfully!')
+  $('#messages').hide()
+  // onSuccess('Signed in successfully!')
 }
 
 const onSignOutError = function (err) {
@@ -99,7 +100,9 @@ const onSignOutSuccess = function () {
   storage.game = null
   $('.signed-out-data').show()
   $('.signed-in-data').hide()
-  onSuccess('Signed out successfully!')
+  $('#game-board').hide()
+  $('#messages').hide()
+  // onSuccess('Signed out successfully!')
 }
 
 const onStartGameError = function (err) {
@@ -110,7 +113,9 @@ const onStartGameSuccess = function (response) {
   storage.game = response.game
   storage.whoseTurn = 'x'
   updateBoard()
-  onSuccess('Started game successfully!')
+  $('#game-board').show()
+  $('#messages').hide()
+  // onSuccess('Started game successfully!')
 }
 
 const onMakeMoveError = function (err) {

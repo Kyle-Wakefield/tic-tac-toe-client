@@ -30,7 +30,7 @@
 
 ### in user user must be able to start a tic tac toe game
 -button to start new game: index.html ✔
--gameboard: index.html ✔
+-game-board: index.html ✔
 
 ### When playing game, user must be able to change the board state with clicks
 ✔
@@ -42,7 +42,10 @@
 ✔
 
 ### When playing game, user must be notified of win or tie
+✔
 
 ### Once a game is over, user must not be able to add to that board
+✔
 
 ### Once a game is over, user must be able to play again
+✔

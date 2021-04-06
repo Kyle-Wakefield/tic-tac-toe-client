@@ -13,9 +13,10 @@ $(() => {
   storage.user = null
   storage.game = null
   $('.signed-in-data').hide()
+  $('#game-board').hide()
   $('#sign-up-form').on('submit', events.onSignUp)
   $('#sign-in-form').on('submit', events.onSignIn)
   $('#sign-out-button').on('click', events.onSignOut)
   $('#start-game-button').on('click', events.onStartGame)
-  $('.boardspace').on('click', events.onClickSpace)
+  $('.board-space').on('click', events.onClickSpace)
 })

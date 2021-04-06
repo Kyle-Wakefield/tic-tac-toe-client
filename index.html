@@ -12,8 +12,8 @@
       <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
     </head>
     <body>
-      <h1>Welcome to Tic-Tac-Toe!</h1>
-      <span id="signed-in-as" class="font-weight-bold m-2 p-1 my-border signed-in-data">Not currently signed in</span>
+      <h1><span class="page-header">Welcome to Tic-Tac-Toe!</span></h1>
+      <span id="signed-in-as" class="font-weight-bold m-2 p-1 signed-in-data">Not currently signed in</span>
       <div class="container justify-content-between signed-out-data" id="form-container">
         <div class="row">
           <div class="col-5 border-width-2 pb-2">
@@ -57,21 +57,21 @@
       <div class="d-flex justify-content-center">
         <button id="start-game-button" type="submit" class="btn btn-primary my-3 signed-in-data">Start Game</button>
       </div>
-      <div class="container signed-in-data">
+      <div class="container" id="game-board">
         <div class="row justify-content-center">
-          <div class="my-border-left my-border-top box-size-100 boardspace" data-space-number="0"></div>
-          <div class="my-border-top box-size-100 boardspace" data-space-number="1"></div>
-          <div class="my-border-right my-border-top box-size-100 boardspace" data-space-number="2"></div>
+          <div class="my-border-left my-border-top box-size-100 board-space" data-space-number="0"></div>
+          <div class="my-border-top box-size-100 board-space" data-space-number="1"></div>
+          <div class="my-border-right my-border-top box-size-100 board-space" data-space-number="2"></div>
         </div>
         <div class="row justify-content-center">
-          <div class="my-border-left box-size-100 boardspace" data-space-number="3"></div>
-          <div class="my-border box-size-100 boardspace" data-space-number="4"></div>
-          <div class="my-border-right box-size-100 boardspace" data-space-number="5"></div>
+          <div class="my-border-left box-size-100 board-space" data-space-number="3"></div>
+          <div class="my-border box-size-100 board-space" data-space-number="4"></div>
+          <div class="my-border-right box-size-100 board-space" data-space-number="5"></div>
         </div>
         <div class="row justify-content-center">
-          <div class="my-border-bottom my-border-left box-size-100 boardspace" data-space-number="6"></div>
-          <div class="my-border-bottom box-size-100 boardspace" data-space-number="7"></div>
-          <div class="my-border-bottom my-border-right box-size-100 boardspace" data-space-number="8"></div>
+          <div class="my-border-bottom my-border-left box-size-100 board-space" data-space-number="6"></div>
+          <div class="my-border-bottom box-size-100 board-space" data-space-number="7"></div>
+          <div class="my-border-bottom my-border-right box-size-100 board-space" data-space-number="8"></div>
         </div>
       </div>
       <div id="messages" class="messages"></div>
