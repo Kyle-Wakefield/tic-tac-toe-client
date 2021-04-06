@@ -1,0 +1,87 @@
+@import '~bootstrap/scss/bootstrap';
+
+$success-color: #1f800b;
+$error-color: #f00;
+$background-color: #4026d1;
+$basic-text-color: #e9e8ed;
+$button-color: #1ea1a6;
+$button-hover-color: #31961d;
+$form-background-color: #166e4f;
+
+body {
+  background-color: $background-color;
+  color: $basic-text-color;
+}
+
+h1,
+h2 {
+  text-align: center;
+}
+
+.btn-primary {
+  background-color: $button-color;
+
+  &:hover {
+    background-color: $button-hover-color;
+  }
+}
+
+.center {
+
+}
+
+.success {
+  color: $button-hover-color;
+}
+
+.error {
+  color: $error-color;
+}
+
+.my-border {
+  border-style: solid;
+  border-width: 5px;
+}
+
+.my-border-bottom {
+  @extend .my-border;
+  border-bottom-width: 8px;
+}
+
+.my-border-left {
+  @extend .my-border;
+  border-left-width: 8px;
+}
+
+.my-border-right {
+  @extend .my-border;
+  border-right-width: 8px;
+}
+
+.my-border-top {
+  @extend .my-border;
+  border-top-width: 8px;
+}
+
+.font-size-40 {
+  font-size: 40px;
+}
+
+.font-size-20 {
+  font-size: 20px;
+}
+
+.tic-tac-toe-box {
+  font-size: 80px;
+  font-weight: bold;
+  height: 100px;
+  line-height: 80%;
+  text-align: center;
+  width: 100px;
+}
+
+.messages {
+  font-size: 50px;
+  font-weight: bold;
+  text-align: center;
+}
